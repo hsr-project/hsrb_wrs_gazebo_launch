@@ -39,8 +39,8 @@ POSSIBILITY OF SUCH DAMAGE.
   <arg name="use_task" default="true" />
   <arg name="use_teleop" default="true" />
   <arg name="use_web" default="true" />
-  <arg name="use_laser_odom" default="true" />
-  <arg name="use_oss_stacks" default="false" />
+  <arg name="use_laser_odom" default="false" />
+  <arg name="use_oss_stacks" default="true" />
   <arg name="paused" default="true" />
   <arg name="fast_physics" default="false" />
   <arg name="highrtf" default="false" />
@@ -94,6 +94,7 @@ POSSIBILITY OF SUCH DAMAGE.
       <arg name="fast_physics" value="$(arg fast_physics)" />
       <arg name="gazebo_visualization" value="$(arg gazebo_visualization)" />
       <arg name="use_laser_odom" value="$(arg use_laser_odom)" />
+      <arg name="use_oss_stacks" value="$(arg use_oss_stacks)" />
       <arg name="paused" value="$(arg paused)" />
       <arg name="world_name" value="$(arg world_name)" />
       <arg name="robot_pos" value="$(arg robot_pos)" />
@@ -110,13 +111,14 @@ POSSIBILITY OF SUCH DAMAGE.
     <!-- rosnav -->
     <include file="$(find hsrb_rosnav_config)/launch/hsrb_nav.launch">
       <arg name="map_file" value="$(arg map)"/>
+      <arg name="localization_type" value="iris_lama_loc2d"/>
     </include>
 
     <!-- pose_to_odom -->
     <node pkg="topic_tools" type="relay" name="odom_relay"
           args="/hsrb/laser_odom /hsrb/odom" if="$(arg use_laser_odom)" />
     <node pkg="topic_tools" type="relay" name="odom_relay"
-          args="/hsrb/wheel_odom /hsrb/odom" unless="$(arg use_laser_odom)" />
+          args="/hsrb/offset_diff_drive_controller/odom /hsrb/odom" unless="$(arg use_laser_odom)" />
   </group>
 
   <!-- spawn objects to the world -->
