@@ -274,6 +274,13 @@ POSSIBILITY OF SUCH DAMAGE.
     <rosparam param="object_names">['hsrb']</rosparam>
   </node>
 
+  <node pkg="tmc_gazebo_task_evaluators" type="object_in_box_detector" name="hsrb_in_humanfront_detector" output="screen">
+    <param name="box_name" value="wrc_frame" />
+    <rosparam param="box_pose">[1.5, 1.2, 1]</rosparam>
+    <rosparam param="box_size">[3, 1.6, 3]</rosparam>
+    <rosparam param="object_names">['hsrb']</rosparam>
+  </node>
+
   <node pkg="tmc_gazebo_task_evaluators" type="undesired_contact_detector" name="undesired_contact_detector" output="screen">
     <param name="target_model_name" value="hsrb" />
     <rosparam param="except_model_names">['wrc_ground_plane', 'wrc_tray_*', 'wrc_container_*', 'trofast_*', 'task1_*', 'wrc_bookshelf', 'task2_*']</rosparam>
