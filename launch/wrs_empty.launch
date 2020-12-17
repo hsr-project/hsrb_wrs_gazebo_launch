@@ -47,6 +47,7 @@ POSSIBILITY OF SUCH DAMAGE.
   <arg name="with_handle" default="true" />
   <arg name="use_oss_stacks" default="true" />
   <arg name="seed" default="1" />
+  <arg name="camera_controller" default="false" />
 
   <include file="$(find hsrb_wrs_gazebo_launch)/launch/include/wrs_common.xml" pass_all_args="true" >
     <arg name="per_category" value="0" />

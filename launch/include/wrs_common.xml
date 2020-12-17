@@ -50,6 +50,7 @@ POSSIBILITY OF SUCH DAMAGE.
   <arg name="per_category" default="6" />
   <arg name="obstacles" default="4" />
   <arg name="per_row" default="6" />
+  <arg name="camera_controller" default="false" />
 
   <arg name="map" default="$(find tmc_wrs_gazebo_worlds)/maps/wrs2020/map.yaml" />
 
@@ -288,4 +289,9 @@ POSSIBILITY OF SUCH DAMAGE.
 
   <node pkg="tmc_gazebo_task_evaluators" type="wrs_score_counter" name="wrs_score_counter" output="screen">
   </node>
+
+  <group if="$(arg camera_controller)">
+    <node pkg="tmc_gazebo_task_evaluators" type="wrs_camera_controller" name="wrs_camera_controller" output="screen">
+    </node>
+  </group>
 </launch>
