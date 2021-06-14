@@ -166,6 +166,13 @@ POSSIBILITY OF SUCH DAMAGE.
     <rosparam param="object_names">['task1_tool_*']</rosparam>
   </node>
 
+  <node pkg="tmc_gazebo_task_evaluators" type="object_in_box_detector" name="drawer_in_drawerfront_detector" output="screen">
+    <param name="box_name" value="wrc_stair_like_drawer" />
+    <rosparam param="box_pose">[0.5, 0, 0]</rosparam>
+    <rosparam param="box_size">[0.5, 1, 1.5]</rosparam>
+    <rosparam param="object_names">['trofast_*']</rosparam>
+  </node>
+
   <node pkg="tmc_gazebo_task_evaluators" type="object_in_box_detector" name="any_in_containera_detector" output="screen">
     <param name="box_name" value="wrc_container_b" />
     <rosparam param="box_pose">[0, 0, 0.055]</rosparam>
@@ -275,10 +282,17 @@ POSSIBILITY OF SUCH DAMAGE.
     <rosparam param="object_names">['hsrb']</rosparam>
   </node>
 
-  <node pkg="tmc_gazebo_task_evaluators" type="object_in_box_detector" name="hsrb_in_humanfront_detector" output="screen">
-    <param name="box_name" value="wrc_frame" />
-    <rosparam param="box_pose">[1.5, 1.2, 1]</rosparam>
-    <rosparam param="box_size">[3, 1.6, 3]</rosparam>
+  <node pkg="tmc_gazebo_task_evaluators" type="object_in_box_detector" name="hsrb_in_humanleftfront_detector" output="screen">
+    <param name="box_name" value="person_standing" />
+    <rosparam param="box_pose">[0, -0.5, 1]</rosparam>
+    <rosparam param="box_size">[1.2, 1.6, 3]</rosparam>
+    <rosparam param="object_names">['hsrb']</rosparam>
+  </node>
+
+  <node pkg="tmc_gazebo_task_evaluators" type="object_in_box_detector" name="hsrb_in_humanrightfront_detector" output="screen">
+    <param name="box_name" value="person_standing_0" />
+    <rosparam param="box_pose">[0, -0.5, 1]</rosparam>
+    <rosparam param="box_size">[1.2, 1.6, 3]</rosparam>
     <rosparam param="object_names">['hsrb']</rosparam>
   </node>
 
