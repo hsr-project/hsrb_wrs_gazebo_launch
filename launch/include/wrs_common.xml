@@ -302,6 +302,7 @@ POSSIBILITY OF SUCH DAMAGE.
   </node>
 
   <node pkg="tmc_gazebo_task_evaluators" type="wrs_score_counter" name="wrs_score_counter" output="screen">
+    <param name="seed" value="$(arg seed)" />
   </node>
 
   <group if="$(arg camera_controller)">
