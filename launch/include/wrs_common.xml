@@ -56,6 +56,8 @@ POSSIBILITY OF SUCH DAMAGE.
 
   <arg unless="$(arg fast_physics)" name="world_suffix" value=""/>
   <arg     if="$(arg fast_physics)" name="world_suffix" value="_fast"/>
+  <arg unless="$(arg fast_physics)" name="extra_gazebo_args" value=""/>
+  <arg     if="$(arg fast_physics)" name="extra_gazebo_args" value="--minimal-comms"/>
   <arg unless="$(arg highrtf)" name="world_suffix2" value=""/>
   <arg     if="$(arg highrtf)" name="world_suffix2" value="_highrtf"/>
   <arg unless="$(arg with_handle)" name="world_suffix3" value=""/>
@@ -94,6 +96,7 @@ POSSIBILITY OF SUCH DAMAGE.
       <arg name="debug" value="$(arg debug)"/>
       <arg name="fast_physics" value="$(arg fast_physics)" />
       <arg name="gazebo_visualization" value="$(arg gazebo_visualization)" />
+      <arg name="extra_gazebo_args" value="$(arg extra_gazebo_args)" />
       <arg name="use_laser_odom" value="$(arg use_laser_odom)" />
       <arg name="use_oss_stacks" value="$(arg use_oss_stacks)" />
       <arg name="paused" value="$(arg paused)" />
